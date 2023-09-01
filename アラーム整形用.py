@@ -1,13 +1,10 @@
 import pandas as pd
 import re
-import csv
-import tkinter
+import tkinter as tk
 
-root = tkinter.Tk()
-root.title(u"Software Title")
-root.geometry("400x300")
 
-df = pd.read_csv("D:自作/fortigate.csv",names=["rows"])
+######Frotigate処理用######
+df = pd.read_csv("D:fortigate.csv",names=["rows"])
 
 #「"」で囲まれているデータは「＊＊＊="([^"]*)"\s+」で抽出
 #その他は、「time=(.*?)\s+'」で抽出
@@ -59,4 +56,64 @@ print("■送信先")
 for unique_list in df["dstip_unique"].unique():
     print(unique_list)
 
-    root.mainloop()
+
+root = tk.Tk()
+root.title(u"Software Title")
+root.geometry("400x300")
+
+radio_0 = tk.StringVar(value="FortiGate")
+
+radio_FortiGate = tk.Radiobutton(
+    root,
+    text="FortiGate",
+    value="FortiGate",
+    variable=radio_0
+)
+radio_NSP = tk.Radiobutton(
+    root,
+    text="NSP",
+    value="NSP",
+    variable=radio_0
+)
+radio_PaloAlto = tk.Radiobutton(
+    root,
+    text="PaloAlto",
+    value="PaloAlto",
+    variable=radio_0
+)
+radio_NetVisor = tk.Radiobutton(
+    root,
+    text="NetVisor",
+    value="NetVisor",
+    variable=radio_0
+)
+radio_iMark = tk.Radiobutton(
+    root,
+    text="iMark",
+    value="iMark",
+    variable=radio_0
+)
+
+
+radio_FortiGate.grid(
+    row=0,
+    column=0,
+)
+radio_NSP.grid(
+    row=0,
+    column=1,
+)
+radio_PaloAlto.grid(
+    row=0,
+    column=2,
+)
+radio_NetVisor.grid(
+    row=0,
+    column=3,
+)
+radio_iMark.grid(
+    row=0,
+    column=4,
+)
+
+root.mainloop()
