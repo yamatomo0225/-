@@ -1,5 +1,4 @@
 import pandas as pd
-import re
 import tkinter as tk
 
 
@@ -69,11 +68,19 @@ radio_FortiGate = tk.Radiobutton(
     value="FortiGate",
     variable=radio_0
 )
+radio_FortiGate.grid(
+    row=0,
+    column=0,
+)
 radio_NSP = tk.Radiobutton(
     root,
     text="NSP",
     value="NSP",
     variable=radio_0
+)
+radio_NSP.grid(
+    row=0,
+    column=1,
 )
 radio_PaloAlto = tk.Radiobutton(
     root,
@@ -81,11 +88,19 @@ radio_PaloAlto = tk.Radiobutton(
     value="PaloAlto",
     variable=radio_0
 )
+radio_PaloAlto.grid(
+    row=0,
+    column=2,
+)
 radio_NetVisor = tk.Radiobutton(
     root,
     text="NetVisor",
     value="NetVisor",
     variable=radio_0
+)
+radio_NetVisor.grid(
+    row=0,
+    column=3,
 )
 radio_iMark = tk.Radiobutton(
     root,
@@ -93,27 +108,45 @@ radio_iMark = tk.Radiobutton(
     value="iMark",
     variable=radio_0
 )
-
-
-radio_FortiGate.grid(
-    row=0,
-    column=0,
-)
-radio_NSP.grid(
-    row=0,
-    column=1,
-)
-radio_PaloAlto.grid(
-    row=0,
-    column=2,
-)
-radio_NetVisor.grid(
-    row=0,
-    column=3,
-)
 radio_iMark.grid(
     row=0,
     column=4,
 )
+button_read = tk.Button(
+    root,
+    text="Start",
+)
+button_read.grid(
+    row=2,
+    column=0
+)
+button_reset = tk.Button(
+    root,
+    text="Reset",
+    #command=
+)
+button_reset.grid(
+    row=2,
+    column=1
+)
+text_input=tk.Text(
+    root,
+    width=50,
+    height=5,
+)
+text_input.grid(
+    row=3,
+    columnspan=5
+)
+text_output=tk.Text(
+    root,
+    width=50,
+    height=5,
+)
+text_output.grid(
+    row=4,
+    columnspan=5
+)
+
 
 root.mainloop()
